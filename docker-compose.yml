@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  ffmpeg-streamer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - INPUT_URL=http://your_input_url_here
+      - OUTPUT_URL=rtmp://your_output_url_here
+    restart: unless-stopped
