@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  ffmpeg-streamer:
+  icecast2hls:
     build:
       context: .
       dockerfile: Dockerfile
