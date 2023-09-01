@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  icecast2hls:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./streams.txt:/app/streams.txt
+    restart: always

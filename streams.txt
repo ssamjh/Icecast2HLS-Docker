@@ -1,0 +1,1 @@
+http://example.com/input2,rtmp://example.com/output2
