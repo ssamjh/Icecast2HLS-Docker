@@ -1,5 +1,8 @@
-# Use a base image with ffmpeg pre-installed
-FROM jrottenberg/ffmpeg:latest
+FROM alpine:3.20
+
+# Install ffmpeg and perform cleanup in the same layer
+RUN apk add --no-cache ffmpeg && \
+    rm -rf /var/cache/apk/* /tmp/*
 
 # Copy the reconnection script into the container
 COPY reconnect.sh /reconnect.sh
@@ -8,4 +11,4 @@ COPY reconnect.sh /reconnect.sh
 RUN chmod +x /reconnect.sh
 
 # Set the entrypoint to the reconnection script
-ENTRYPOINT ["/reconnect.sh"]
+ENTRYPOINT ["/bin/sh", "/reconnect.sh"]
